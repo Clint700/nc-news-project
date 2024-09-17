@@ -15,3 +15,14 @@ export const getArticles = () => {
         console.log(err)
     })
 }
+
+export const getArticleByID = (article_id) => {
+    return apiClient
+    .get(`/articles/${article_id}`)
+    .then((data) => {
+        return data
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
