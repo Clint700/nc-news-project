@@ -13,10 +13,10 @@ const ArticlePage = () => {
 
   return (
     <div>
-      {articles.map((article, index) => {
+      {articles.map((article) => {
         return (
           <>
-            <ArticleCard key={index} article={article} />
+            <ArticleCard key={article.article_id} article={article} />
           </>
         );
       })}

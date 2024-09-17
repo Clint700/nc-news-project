@@ -43,18 +43,18 @@ const ArticleForm = () => {
           {new Date(selectedArticle.created_at).toLocaleDateString()}
         </p>
         <p className="text-lg text-gray-700">{selectedArticle.body}</p>
-        <div className="mt-8 space-y-4">
-          <h2 className="text-2xl font-bold mt-8">Comments</h2>
-          <CommentList article_id={selectedArticle.article_id} />
-        </div>
         <div className="mt-4 flex items-center space-x-4">
-          <p className="text-lg font-semibold text-gray-700">
-            Comments: {selectedArticle.comment_count}
-          </p>
         </div>
         <div className="mt-4 flex items-center space-x-4">
           Votes:
           {<VoteComponent initialVotes={selectedArticle.votes} />}
+        </div>
+        <div className="mt-8 space-y-4">
+          <h2 className="text-2xl font-bold mt-8">Comments</h2>
+          <p className="text-lg font-semibold text-gray-700">
+            Comments: {selectedArticle.comment_count}
+          </p>
+          <CommentList article_id={selectedArticle.article_id} />
         </div>
       </div>
     </section>

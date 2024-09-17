@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-
 const Header = () => {
   return (
-    <nav className="flex items-center justify-between bg-gray-300 p-4">
+    <nav className="max-w-scree-xl mx-auto flex overflow-auto items-center justify-around bg-gray-300 p-4 m-4 transform px-4 py-4">
       <button type="button" className="bg-gray-200">
         Menu
       </button>
