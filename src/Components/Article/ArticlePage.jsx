@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { getArticles } from "../../../API/Articles";
+import { getArticles } from "../../../API/ArticlesApi";
 import ArticleCard from "./ArticleCard";
 
 const ArticlePage = () => {
   const [articles, setArticles] = useState([]);
 
-  console.log(articles);
   useEffect(() => {
     getArticles().then(({ data: { articles } }) => {
       setArticles(articles);
@@ -15,7 +14,11 @@ const ArticlePage = () => {
   return (
     <div>
       {articles.map((article, index) => {
-        return <ArticleCard key={index} article={article} />;
+        return (
+          <>
+            <ArticleCard key={index} article={article} />
+          </>
+        );
       })}
     </div>
   );

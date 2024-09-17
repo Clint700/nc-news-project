@@ -15,7 +15,6 @@ const VoteComponent = ({ initialVotes }) => {
     }
   };
 
-
   const handleDownvote = () => {
     if (!hasUpvoted && !hasDownvoted) {
       setVotes(votes - 1);
@@ -30,7 +29,9 @@ const VoteComponent = ({ initialVotes }) => {
     <div className="flex items-center space-x-4">
       <button
         className={`${
-          hasUpvoted ? "bg-gray-400 cursor-not-allowed" : "bg-green-500 hover:bg-green-700"
+          hasUpvoted
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-green-500 hover:bg-green-700"
         } text-white px-3 py-1 rounded`}
         onClick={handleUpvote}
         disabled={hasUpvoted}
@@ -41,7 +42,9 @@ const VoteComponent = ({ initialVotes }) => {
       <span className="text-xl font-bold text-gray-700">{votes}</span>
       <button
         className={`${
-          hasDownvoted ? "bg-gray-400 cursor-not-allowed" : "bg-red-500 hover:bg-red-700"
+          hasDownvoted
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-red-500 hover:bg-red-700"
         } text-white px-3 py-1 rounded`}
         onClick={handleDownvote}
         disabled={hasDownvoted}
