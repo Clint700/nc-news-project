@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getArticleComments } from "../../../API/commentsApi";
+import { getArticleComments } from "../../../API/CommentsApi";
 import CommentCard from "./CommentCard";
 
-const CommentList = ({ article_id, limit }) => {
+const CommentList = ({ article_id, limit, refresh }) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,7 +18,7 @@ const CommentList = ({ article_id, limit }) => {
         setError("Failed to load comments.");
         setLoading(false);
       });
-  }, [article_id]);
+  }, [article_id, refresh]);
 
   if (loading) {
     return <p>Comments Loading...</p>;

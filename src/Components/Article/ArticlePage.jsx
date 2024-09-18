@@ -11,6 +11,8 @@ const ArticlePage = () => {
     });
   }, []);
 
+  
+
   return (
     <div>
       {articles.map((article) => {

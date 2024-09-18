@@ -15,3 +15,14 @@ export const getArticleComments = (article_id) => {
       console.log(err);
     });
 };
+
+export const postComment = (article_id, commentData) => {
+  return apiClient
+    .post(`/articles/${article_id}/comments`, commentData)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
+};
