@@ -3,11 +3,13 @@ import { getArticleByID } from "../../../API/ArticlesApi";
 import { useEffect, useState } from "react";
 import VoteComponent from "../Vote";
 import CommentList from "../Comment/CommentList";
+import CommentForm from "../Comment/CommentForm";
 
 const ArticleForm = () => {
   const { article_id } = useParams();
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [refreshComments, setRefreshComments] = useState(false)
 
   useEffect(() => {
     getArticleByID(article_id)
@@ -20,6 +22,10 @@ const ArticleForm = () => {
         setLoading(false);
       });
   }, [article_id]);
+
+  const handleCommentPosted = () => {
+    setRefreshComments(!refreshComments)
+  }
 
   if (loading) {
     return <p>Article Loading...</p>;
@@ -54,7 +60,8 @@ const ArticleForm = () => {
           <p className="text-lg font-semibold text-gray-700">
             Comments: {selectedArticle.comment_count}
           </p>
-          <CommentList article_id={selectedArticle.article_id} />
+          <CommentList article_id={selectedArticle.article_id} refresh={refreshComments}/>
+          <CommentForm article_id={selectedArticle.article_id} onCommentPosted={handleCommentPosted}/>
         </div>
       </div>
     </section>

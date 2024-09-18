@@ -5,7 +5,7 @@ import CommentList from "../Comment/CommentList";
 const ArticleCard = ({ article }) => {
   return (
     <Link to={`/articles/${article.article_id}`}>
-      <section className="max-w-screen-xl mx-auto rounded overflow-hidden shadow-lg bg-white p-4 m-4 transition-transform transform hover:scale-105 px-4 py-8">
+      <section className="max-w-screen-xl mx-auto rounded overflow-hidden shadow-lg bg-white p-4 m-4 transition-transform transform hover:scale-20 px-4 py-8">
         <img
           className="w-full h-64 sm:h-64 md:h-80 lg:h-96 object-cover rounded"
           src={article.article_img_url}
@@ -29,7 +29,20 @@ const ArticleCard = ({ article }) => {
             <h2 className="text-2xl font-bold mt-8">Comments</h2>
             Comments: {article.comment_count}
             <CommentList article_id={article.article_id} limit={2} />
-            <button type="button" className="bg-inherit text-gray-700" >More comments...</button>
+            <div className="flex justify-between w-full">
+              <button
+                type="button"
+                className="bg-gray-100 text-gray-700 transition rounded"
+              >
+                More comments...
+              </button>
+              <button
+                type="button"
+                className="bg-gray-100 text-gray-700 items-end ml-auto transition rounded"
+              >
+                Add comments
+              </button>
+            </div>
           </div>
         </div>
       </section>
