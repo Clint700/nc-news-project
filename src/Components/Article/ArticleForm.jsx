@@ -9,7 +9,7 @@ const ArticleForm = () => {
   const { article_id } = useParams();
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [refreshComments, setRefreshComments] = useState(false)
+  const [refreshComments, setRefreshComments] = useState(false);
 
   useEffect(() => {
     getArticleByID(article_id)
@@ -24,8 +24,8 @@ const ArticleForm = () => {
   }, [article_id]);
 
   const handleCommentPosted = () => {
-    setRefreshComments(!refreshComments)
-  }
+    setRefreshComments(!refreshComments);
+  };
 
   if (loading) {
     return <p>Article Loading...</p>;
@@ -49,8 +49,7 @@ const ArticleForm = () => {
           {new Date(selectedArticle.created_at).toLocaleDateString()}
         </p>
         <p className="text-lg text-gray-700">{selectedArticle.body}</p>
-        <div className="mt-4 flex items-center space-x-4">
-        </div>
+        <div className="mt-4 flex items-center space-x-4"></div>
         <div className="mt-4 flex items-center space-x-4">
           Votes:
           {<VoteComponent initialVotes={selectedArticle.votes} />}
@@ -60,8 +59,14 @@ const ArticleForm = () => {
           <p className="text-lg font-semibold text-gray-700">
             Comments: {selectedArticle.comment_count}
           </p>
-          <CommentList article_id={selectedArticle.article_id} refresh={refreshComments}/>
-          <CommentForm article_id={selectedArticle.article_id} onCommentPosted={handleCommentPosted}/>
+          <CommentList
+            article_id={selectedArticle.article_id}
+            refresh={handleCommentPosted}
+          />
+          <CommentForm
+            article_id={selectedArticle.article_id}
+            onCommentPosted={handleCommentPosted}
+          />
         </div>
       </div>
     </section>

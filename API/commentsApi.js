@@ -26,3 +26,14 @@ export const postComment = (article_id, commentData) => {
       console.log(err.response);
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return apiClient
+    .delete(`/comments/${comment_id}`)
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
