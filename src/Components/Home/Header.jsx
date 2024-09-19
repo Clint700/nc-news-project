@@ -15,9 +15,11 @@ const Header = () => {
           Home
         </button>
       </Link>
-      <button type="button" className="bg-gray-200">
-        Search
-      </button>
+      <Link to="/topics" className="text-gray-700">
+        <button type="button" className="bg-gray-200">
+          Topic
+        </button>
+      </Link>
       <button type="button" className="bg-gray-200">
         Articles
       </button>

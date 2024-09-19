@@ -11,15 +11,13 @@ const ArticlePage = () => {
     });
   }, []);
 
-  
-
   return (
     <div>
-      {articles.map((article) => {
+      {articles.map((article, index) => {
         return (
-          <>
+          <li key={index}>
             <ArticleCard key={article.article_id} article={article} />
-          </>
+          </li>
         );
       })}
     </div>

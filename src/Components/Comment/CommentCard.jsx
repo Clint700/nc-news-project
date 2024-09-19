@@ -35,12 +35,12 @@ const CommentCard = ({ comment, onDelete }) => {
         </div>
 
         <div className="flex flex-col items-end space-y-2">
-          <Link
+          <div
             to="#reply"
             className="text-sm text-blue-600 hover:underline hover:text-blue-800"
           >
             Reply
-          </Link>
+          </div>
           {comment.author === "cooljmessy" && (
             <button
               type="button"

@@ -4,6 +4,8 @@ import Header from "./Components/Home/Header";
 import ArticlePage from "./Components/Article/ArticlePage";
 import ArticleForm from "./Components/Article/ArticleForm";
 import CommentList from "./Components/Comment/CommentList";
+import TopicPage from "./Components/Topic/TopicPage";
+import TopicArticles from "./Components/Topic/TopicArticles";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           element={<CommentList />}
         />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+        <Route path="/topics" element={<TopicPage />} />
+        <Route path="/topics/:topic_slug" element={<TopicArticles />} />
       </Routes>
     </Router>
   );
