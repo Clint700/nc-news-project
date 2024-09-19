@@ -8,6 +8,7 @@ const CommentList = ({ article_id, limit, refresh }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
     getArticleComments(article_id)
       .then(({ data: { comments } }) => {
         setComments(comments);
@@ -27,15 +28,22 @@ const CommentList = ({ article_id, limit, refresh }) => {
     return <p>{error}</p>;
   }
 
-  const displayedComments = limit ? comments.slice(0, limit) : comments;
+  const handleDeletedComment = () => {
+    refresh();
+  };
 
+  const displayedComments = limit ? comments.slice(0, limit) : comments;
   return (
     <div className="mt-8 space-y-4">
       {displayedComments.length === 0 ? (
         <p>No comments yet.</p>
       ) : (
         displayedComments.map((comment) => (
-          <CommentCard key={comment.comment_id} comment={comment} />
+          <CommentCard
+            key={comment.comment_id}
+            comment={comment}
+            onDelete={handleDeletedComment}
+          />
         ))
       )}
     </div>

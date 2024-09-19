@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiClient = axios.create({
   baseURL: "https://northcoders-backend-project.onrender.com/api/",
-  timeout: 1000,
+  timeout: 100000,
 });
 
 export const getArticles = () => {
