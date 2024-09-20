@@ -36,3 +36,5 @@ export const deleteComment = (comment_id) => {
       console.log(err);
     });
 };
+
+//Issue resolved
