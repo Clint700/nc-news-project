@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import VoteComponent from "../Vote";
 import { deleteComment } from "../../../API/CommentsApi";
 import { useState } from "react";
+import CommentVoteComponent from "../Vote/CommentVote";
 
 const CommentCard = ({ comment, onDelete }) => {
   const [message, setMessage] = useState("");
@@ -31,7 +30,7 @@ const CommentCard = ({ comment, onDelete }) => {
       <p className="text-base text-gray-800 mt-4">{comment.body}</p>
       <div className="mt-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <VoteComponent initialVotes={comment.votes} />
+          <CommentVoteComponent initialVotes={comment.votes} />
         </div>
 
         <div className="flex flex-col items-end space-y-2">

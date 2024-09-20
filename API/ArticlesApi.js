@@ -25,3 +25,7 @@ export const getArticleByID = (article_id) => {
       console.log(err);
     });
 };
+
+export const voteOnArticle = (article_id, votes) => {
+  return apiClient.patch(`/articles/${article_id}`, { votes });
+};

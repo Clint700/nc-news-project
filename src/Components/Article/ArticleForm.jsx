@@ -57,7 +57,7 @@ const ArticleForm = () => {
         <div className="mt-4 flex items-center space-x-4"></div>
         <div className="mt-4 flex items-center space-x-4">
           Votes:
-          {<VoteComponent initialVotes={selectedArticle.votes} />}
+          {<VoteComponent initialVotes={selectedArticle.votes} article_id={selectedArticle.article_id}/>}
         </div>
         <div className="mt-8 space-y-4">
           <h2 className="text-2xl font-bold mt-8">Comments</h2>

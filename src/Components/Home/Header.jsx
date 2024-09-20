@@ -20,9 +20,11 @@ const Header = () => {
           Topic
         </button>
       </Link>
-      <button type="button" className="bg-gray-200">
-        Articles
-      </button>
+      <Link to="/" className="text-gray-700">
+        <button type="button" className="bg-gray-200">
+          Articles
+        </button>
+      </Link>
       <button type="button" className="bg-gray-200">
         Profile
       </button>

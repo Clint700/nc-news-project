@@ -1,43 +1,29 @@
 import React, { useState } from "react";
-import { voteOnArticle } from "../../../API/ArticlesApi";
 
-const VoteComponent = ({ initialVotes, article_id }) => {
+const CommentVoteComponent = ({ initialVotes }) => {
   const [votes, setVotes] = useState(initialVotes);
   const [hasUpvoted, setHasUpvoted] = useState(false);
   const [hasDownvoted, setHasDownvoted] = useState(false);
-  const [error, setError] = useState(null);
-
-  const handleVote = (change) => {
-    setVotes((prevVotes) => prevVotes + change)
-    setError(null)
-
-    voteOnArticle(article_id, change)
-    .catch((err) => {
-      setVotes((prevVotes) => prevVotes - change);
-      setError("Failed to save vote...")
-    })
-  }
 
   const handleUpvote = () => {
     if (!hasUpvoted && !hasDownvoted) {
-      handleVote(1);
+      setVotes(votes + 1);
       setHasUpvoted(true);
     } else if (hasDownvoted) {
-      handleVote(1);
+      setVotes(votes + 1);
       setHasDownvoted(false);
     }
   };
 
   const handleDownvote = () => {
     if (!hasUpvoted && !hasDownvoted) {
-      handleVote(- 1);
+      setVotes(votes - 1);
       setHasDownvoted(true);
     } else if (hasUpvoted) {
-      handleVote(- 1);
+      setVotes(votes - 1);
       setHasUpvoted(false);
     }
   };
-
 
   return (
     <div className="flex items-center space-x-4">
@@ -53,9 +39,7 @@ const VoteComponent = ({ initialVotes, article_id }) => {
       >
         👍
       </button>
-
       <span className="text-xl font-bold text-gray-700">{votes}</span>
-
       <button
         className={`${
           hasDownvoted
@@ -68,10 +52,8 @@ const VoteComponent = ({ initialVotes, article_id }) => {
       >
         👎
       </button>
-
-      {error && <p className="text-red-500">{error}</p>}
     </div>
   );
 };
 
-export default VoteComponent;
+export default CommentVoteComponent;
