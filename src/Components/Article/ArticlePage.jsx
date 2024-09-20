@@ -17,7 +17,11 @@ const ArticlePage = () => {
       })
       .catch((err) => {
         console.log(err);
-        setError("failed to load articles");
+        if (err.response && err.response.status === 404) {
+          setError("Article not found.");
+        } else {
+          setError("Failed to load the article.");
+        }
         setLoading(false);
       });
   };
