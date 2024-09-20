@@ -6,6 +6,7 @@ import ArticleForm from "./Components/Article/ArticleForm";
 import CommentList from "./Components/Comment/CommentList";
 import TopicPage from "./Components/Topic/TopicPage";
 import TopicArticles from "./Components/Topic/TopicArticles";
+import NotFoundPage from "./Components/Error";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           path="/articles/:article_id/comments"
           element={<CommentList />}
         />
-        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+        <Route path="*" element={<NotFoundPage/>} />
         <Route path="/topics" element={<TopicPage />} />
         <Route path="/topics/:topic_slug" element={<TopicArticles />} />
       </Routes>

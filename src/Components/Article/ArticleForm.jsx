@@ -10,6 +10,7 @@ const ArticleForm = () => {
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [refreshComments, setRefreshComments] = useState(false);
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     getArticleByID(article_id)
@@ -19,6 +20,7 @@ const ArticleForm = () => {
       })
       .catch((err) => {
         console.log(err);
+        setError("Article Not Found")
         setLoading(false);
       });
   }, [article_id]);
@@ -29,6 +31,9 @@ const ArticleForm = () => {
 
   if (loading) {
     return <p>Article Loading...</p>;
+  }
+  if(error){
+    return <p>{error}</p>
   }
   return (
     <section className="max-w-screen-xl mx-auto rounded overflow-hidden shadow-lg bg-white p-4 m-4 transition-transform transform px-4 py-8">
