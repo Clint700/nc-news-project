@@ -35,16 +35,16 @@ const CommentCard = ({ comment, onDelete }) => {
         </div>
 
         <div className="flex flex-col items-end space-y-2">
-          <div
+          <button
             to="#reply"
-            className="text-sm text-blue-600 hover:underline hover:text-blue-800"
+            className="text-sm text-blue-600 hover:underline hover:text-blue-800 bg-inherit"
           >
             Reply
-          </div>
+          </button>
           {comment.author === "cooljmessy" && (
             <button
-              type="button"
-              className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition"
+              t0="#delete"
+              className="text-sm hover:text-red-600 text-red-600 hover:underline hover:bg-inherit bg-inherit"
               onClick={handleClick}
             >
               Delete

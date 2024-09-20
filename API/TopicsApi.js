@@ -15,9 +15,13 @@ export const getTopics = () => {
     });
 };
 
-export const getArticlesPerTopic = (topic_slug) => {
+export const getArticlesPerTopic = (
+  topic_slug,
+  sortBy = "created_at",
+  order = "desc"
+) => {
   return apiClient
-    .get(`/articles?topic=${topic_slug}`)
+    .get(`/articles?topic=${topic_slug}&sort_by=${sortBy}&order=${order}`)
     .then((data) => {
       return data;
     })
