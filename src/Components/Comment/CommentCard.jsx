@@ -18,7 +18,7 @@ const CommentCard = ({ comment, onDelete }) => {
   };
 
   return (
-    <section className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 my-6 transition-transform transform hover:scale-105">
+    <section className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-2 my-2 transition-transform transform hover:scale-105">
       <div className="flex justify-between items-center">
         <h2 className="text-gray-700 text-lg font-semibold">
           {comment.author}

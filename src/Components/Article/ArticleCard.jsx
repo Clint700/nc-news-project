@@ -4,7 +4,7 @@ import CommentList from "../Comment/CommentList";
 
 const ArticleCard = ({ article }) => {
   return (
-    <section className="max-w-screen-xl mx-auto rounded overflow-hidden shadow-lg bg-white p-4 m-4 transition-transform transform hover:scale-20 px-4 py-8">
+    <section className="max-w-screen-xl mx-auto rounded overflow-hidden shadow-lg bg-white p-1 m-1 transition-transform transform hover:scale-20 px-2 py-2">
       <Link to={`/articles/${article.article_id}`}>
         <img
           className="w-full h-64 sm:h-64 md:h-80 lg:h-96 object-cover rounded"
